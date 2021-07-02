@@ -1,0 +1,3 @@
+#!/project/6043799/anahitaa/jukebox/CC-ENVS/JUKEBOX-JUPYTER/bin/python
+from numba.pycc import main
+main()
