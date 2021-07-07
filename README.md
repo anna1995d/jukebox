@@ -50,7 +50,7 @@ pip install -e .
 pip install --no-index av==8.*
 pip install ./tensorboardX
 ```
-In case of encountering [ERROR30], preventing pip installation due to read-only cvmfs files, try removing all modules and then reload them all.
+In case of encountering *[ERROR30]*, preventing pip installation due to read-only cvmfs files, try removing all modules and then reload them all.
 ```
 module --force purge
 ```
