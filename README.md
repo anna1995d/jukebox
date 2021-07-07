@@ -31,6 +31,30 @@ conda install pytorch=1.1 torchvision=0.3 cudatoolkit=10.0 -c pytorch
 pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./apex
 ```
 
+## Setup on Compute Canada
+
+``` 
+# Load necessary modules
+module load StdEnv/2018.3 nixpkgs/16.09 python/3.7 mpi4py/3.0.3
+# Create virtual environment
+virtualenv [ENV]
+source [ENV]/bin/activate
+pip install torch==1.4 torchvision==0.5 # no need to install cuda but make sure to request a gpu in order to use cuda commands
+git clone https://github.com/openai/jukebox.git
+cd jukebox
+pip install -r requirements.txt
+pip install -e .
+
+# Required: Training
+# PyAV==7.0.01 does not work on CC. Instead, use:
+pip install --no-index av==8.*
+pip install ./tensorboardX
+```
+In case of encountering [ERROR30], preventing pip installation due to read-only cvmfs files, try removing all modules and then reload them all.
+```
+module --force purge
+```
+
 # Sampling
 ## Sampling from scratch
 To sample normally, run the following command. Model can be `5b`, `5b_lyrics`, `1b_lyrics`
