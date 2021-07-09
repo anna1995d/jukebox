@@ -39,7 +39,8 @@ module load StdEnv/2018.3 nixpkgs/16.09 python/3.7 mpi4py/3.0.3
 # Create virtual environment
 virtualenv [ENV]
 source [ENV]/bin/activate
-pip install torch==1.4 torchvision==0.5 # no need to install cuda but make sure to request a gpu in order to use cuda commands
+# no need to install cuda but make sure to request a gpu in order to use cuda commands
+pip install torch==1.4 torchvision==0.5 
 git clone https://github.com/openai/jukebox.git
 cd jukebox
 pip install -r requirements.txt
